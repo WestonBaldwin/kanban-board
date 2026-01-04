@@ -1,8 +1,9 @@
 "use client"
 
-// src/app/dev/page.tsx
 import { Button } from "@/components/ui/button";
 import React from "react";
+import { ApolloClient, HttpLink, InMemoryCache, gql } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client/react";
 
 export default function DevPage() {
   return (
