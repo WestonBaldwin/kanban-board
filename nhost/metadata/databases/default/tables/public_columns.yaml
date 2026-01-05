@@ -1,0 +1,86 @@
+table:
+  name: columns
+  schema: public
+object_relationships:
+  - name: board
+    using:
+      foreign_key_constraint_on: board_id
+array_relationships:
+  - name: cards
+    using:
+      foreign_key_constraint_on:
+        column: column_id
+        table:
+          name: cards
+          schema: public
+insert_permissions:
+  - role: user
+    permission:
+      check:
+        board:
+          _or:
+            - owner:
+                _eq: X-Hasura-User-Id
+            - board_members:
+                user_id:
+                  _eq: X-Hasura-User-Id
+      columns:
+        - position
+        - name
+        - board_id
+        - id
+    comment: ""
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - position
+        - name
+        - board_id
+        - id
+      filter:
+        board:
+          _or:
+            - owner:
+                _eq: X-Hasura-User-Id
+            - board_members:
+                user_id:
+                  _eq: X-Hasura-User-Id
+    comment: ""
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - position
+        - name
+        - board_id
+        - id
+      filter:
+        board:
+          _or:
+            - owner:
+                _eq: X-Hasura-User-Id
+            - board_members:
+                user_id:
+                  _eq: X-Hasura-User-Id
+      check:
+        board:
+          _or:
+            - owner:
+                _eq: X-Hasura-User-Id
+            - board_members:
+                user_id:
+                  _eq: X-Hasura-User-Id
+    comment: ""
+delete_permissions:
+  - role: user
+    permission:
+      filter:
+        board:
+          _or:
+            - owner:
+                _eq: X-Hasura-User-Id
+            - board_members:
+                user_id:
+                  _eq: X-Hasura-User-Id
+    comment: ""

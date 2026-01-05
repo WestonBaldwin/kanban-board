@@ -1,0 +1,1 @@
+CREATE TABLE public.cards (id uuid DEFAULT gen_random_uuid() NOT NULL, column_id uuid NOT NULL, title text NOT NULL, description text NOT NULL, assignee uuid NOT NULL, PRIMARY KEY (id), FOREIGN KEY (column_id) REFERENCES public.columns (id) ON UPDATE CASCADE ON DELETE CASCADE, FOREIGN KEY (assignee) REFERENCES auth.users (id) ON UPDATE CASCADE ON DELETE CASCADE);

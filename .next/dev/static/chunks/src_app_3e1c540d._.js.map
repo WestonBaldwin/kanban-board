@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/westonbaldwin/Coding/MyCritters/kanban-board/src/app/apollo-client.ts"],"sourcesContent":["'use client'\nimport { ApolloClient, InMemoryCache } from '@apollo/client-integration-nextjs'\nimport { HttpLink } from '@apollo/client'\n\nexport function makeClient() {\n  return new ApolloClient({\n    link: new HttpLink({ uri: 'https://countries.trevorblades.com/' }),\n    cache: new InMemoryCache(),\n  })\n}"],"names":[],"mappings":";;;;AACA;AACA;AAFA;;;AAIO,SAAS;IACd,OAAO,IAAI,0NAAY,CAAC;QACtB,MAAM,IAAI,6KAAQ,CAAC;YAAE,KAAK;QAAsC;QAChE,OAAO,IAAI,2NAAa;IAC1B;AACF"}},
+    {"offset": {"line": 28, "column": 0}, "map": {"version":3,"sources":["file:///Users/westonbaldwin/Coding/MyCritters/kanban-board/src/app/providers.tsx"],"sourcesContent":["'use client'\nimport { PropsWithChildren } from 'react'\nimport { ApolloNextAppProvider } from '@apollo/client-integration-nextjs'\nimport { makeClient } from './apollo-client'\n\nexport default function Providers({ children }: PropsWithChildren) {\n  return (\n    <ApolloNextAppProvider makeClient={makeClient}>\n      {children}\n    </ApolloNextAppProvider>\n  )\n}"],"names":[],"mappings":";;;;;AAEA;AACA;AAHA;;;;AAKe,SAAS,UAAU,EAAE,QAAQ,EAAqB;IAC/D,qBACE,6LAAC,mOAAqB;QAAC,YAAY,+IAAU;kBAC1C;;;;;;AAGP;KANwB"}}]
+}

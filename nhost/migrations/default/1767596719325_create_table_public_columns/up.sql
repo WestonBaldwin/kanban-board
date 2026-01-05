@@ -1,0 +1,1 @@
+CREATE TABLE public.columns (id uuid DEFAULT gen_random_uuid() NOT NULL, board_id uuid NOT NULL, name text NOT NULL, position numeric NOT NULL, PRIMARY KEY (id), FOREIGN KEY (board_id) REFERENCES public.boards (id) ON UPDATE CASCADE ON DELETE CASCADE);

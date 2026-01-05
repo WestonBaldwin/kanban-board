@@ -1,0 +1,9 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,114,e=>{"use strict";var s=e.i(80506),a=e.i(85237),r=e.i(78419);e.i(36446);var d=e.i(73893),t=e.i(15288);let i=a.gql`
+  query Boards {
+    boards(order_by: { created_at: desc }) {
+      id
+      name
+      created_at
+    }
+  }
+`;function l(){let{isAuthenticated:e}=(0,d.useAuthenticationStatus)(),{data:a,loading:l,error:n}=(0,r.useQuery)(i,{skip:!e});if(!e)return(0,s.jsx)("main",{className:"p-6",children:(0,s.jsx)("p",{children:"Please sign in to view your boards."})});if(l)return(0,s.jsxs)("main",{className:"p-6",children:[(0,s.jsx)("h1",{className:"text-2xl font-semibold mb-4",children:"Boards"}),(0,s.jsx)("p",{children:"Loading your boards..."})]});if(n)return(0,s.jsxs)("main",{className:"p-6",children:[(0,s.jsx)("h1",{className:"text-2xl font-semibold mb-4",children:"Boards"}),(0,s.jsxs)("p",{className:"text-red-600",children:["Error loading boards: ",n.message]})]});let o=a?.boards||[];return(0,s.jsxs)("main",{className:"p-6",children:[(0,s.jsx)("h1",{className:"text-2xl font-semibold mb-6",children:"Boards"}),0===o.length?(0,s.jsx)("p",{className:"text-muted-foreground",children:"No boards found. Create your first board to get started."}):(0,s.jsx)("div",{className:"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",children:o.map(e=>(0,s.jsxs)(t.Card,{className:"hover:shadow-md transition-shadow",children:[(0,s.jsx)(t.CardHeader,{children:(0,s.jsx)(t.CardTitle,{className:"text-lg",children:e.name})}),(0,s.jsx)(t.CardContent,{children:(0,s.jsxs)("p",{className:"text-sm text-muted-foreground",children:["Created ",new Date(e.created_at).toLocaleDateString()]})})]},e.id))})]})}e.s(["default",()=>l,"dynamic",0,"force-dynamic","runtime",0,"edge"])}]);

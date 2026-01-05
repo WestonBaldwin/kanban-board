@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/westonbaldwin/Coding/MyCritters/kanban-board/src/app/countries/page.tsx"],"sourcesContent":["\"use client\";\nimport { useGetCountriesQuery } from '@/graphql/__generated__/graphql';\nimport { gql } from \"@apollo/client\";\n\n\n\n\nexport default function CountriesPage() {\n  \n  const { data, loading, error } = GetCountriesQuery()\n\n  if (loading) return <p>Loading…</p>;\n  if (error) return <p>Error: {error.message}</p>;\n\n  return (\n    <main className=\"p-6 space-y-2\">\n      <h1 className=\"text-2xl font-semibold\">Countries</h1>\n      <ul className=\"list-disc pl-6\">\n        {data?.countries.map((c: { code: string; name: string }) => (\n          <li key={c.code}>{c.name}</li>\n        ))}\n      </ul>\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;AAAA;;AAOe,SAAS;IAEtB,MAAM,EAAE,IAAI,EAAE,OAAO,EAAE,KAAK,EAAE,GAAG;IAEjC,IAAI,SAAS,qBAAO,8OAAC;kBAAE;;;;;;IACvB,IAAI,OAAO,qBAAO,8OAAC;;YAAE;YAAQ,MAAM,OAAO;;;;;;;IAE1C,qBACE,8OAAC;QAAK,WAAU;;0BACd,8OAAC;gBAAG,WAAU;0BAAyB;;;;;;0BACvC,8OAAC;gBAAG,WAAU;0BACX,MAAM,UAAU,IAAI,CAAC,kBACpB,8OAAC;kCAAiB,EAAE,IAAI;uBAAf,EAAE,IAAI;;;;;;;;;;;;;;;;AAKzB"}}]
+}

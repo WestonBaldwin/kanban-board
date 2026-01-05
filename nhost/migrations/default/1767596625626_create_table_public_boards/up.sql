@@ -1,0 +1,1 @@
+CREATE TABLE public.boards (id uuid DEFAULT gen_random_uuid() NOT NULL, name text NOT NULL, position numeric NOT NULL, owner uuid NOT NULL, PRIMARY KEY (id), FOREIGN KEY (owner) REFERENCES auth.users (id) ON UPDATE CASCADE ON DELETE CASCADE);

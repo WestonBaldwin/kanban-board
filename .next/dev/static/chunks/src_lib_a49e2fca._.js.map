@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/westonbaldwin/Coding/MyCritters/kanban-board/src/lib/nhost.ts"],"sourcesContent":["import { NhostClient } from '@nhost/nextjs'\n\nexport const nhost = new NhostClient({\n  subdomain: process.env.NEXT_PUBLIC_NHOST_SUBDOMAIN!,\n  region: process.env.NEXT_PUBLIC_NHOST_REGION!,\n})\n"],"names":[],"mappings":";;;;AAGa;AAHb;;AAEO,MAAM,QAAQ,IAAI,iZAAW,CAAC;IACnC,SAAS;IACT,MAAM;AACR"}},
+    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":["file:///Users/westonbaldwin/Coding/MyCritters/kanban-board/src/lib/providers.tsx"],"sourcesContent":["// src/app/providers.tsx\n\"use client\";\nimport { PropsWithChildren } from \"react\";\nimport { NhostProvider } from \"@nhost/nextjs\";\nimport { ApolloProvider } from \"@apollo/client/react\";\nimport { nhost } from \"@/lib/nhost\";\nimport { apolloClient } from \"@/lib/apollo-client\";\n\nexport default function Providers({ children }: PropsWithChildren) {\n  return (\n    <NhostProvider nhost={nhost}>\n      <ApolloProvider client={apolloClient}>\n        {children}\n      </ApolloProvider>\n    </NhostProvider>\n  );\n}\n"],"names":[],"mappings":";;;;;AAGA;AAAA;AACA;AACA;;;;;;AALA,wBAAwB;AACxB;;;;;;AAOe,SAAS,UAAU,EAAE,QAAQ,EAAqB;IAC/D,qBACE,8VAAC,kXAAa;QAAC,OAAO,+HAAK;kBACzB,cAAA,8VAAC,0YAAc;YAAC,QAAQ;sBACrB;;;;;;;;;;;AAIT;KARwB"}}]
+}

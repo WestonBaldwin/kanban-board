@@ -1,0 +1,11 @@
+diff --git a/dist/index.esm.js b/dist/index.esm.js
+index a3ee7f1a2bd0edf09384559a7dbf8c09bd1332f1..859c6976bd1ab1a8217d15dee902a265e05226f7 100644
+--- a/dist/index.esm.js
++++ b/dist/index.esm.js
+@@ -1,4 +1,5 @@
+-import { useQuery as u, useSubscription as i, ApolloClient as l, InMemoryCache as o, ApolloProvider as s } from "@apollo/client";
++import { ApolloClient as l, InMemoryCache as o } from "@apollo/client/core";
++import { useQuery as u, useSubscription as i, ApolloProvider as s } from "@apollo/client/react";
+ import { useAuthenticated as n } from "@nhost/react";
+ import m, { useState as A, useEffect as a } from "react";
+ import { createApolloClient as f } from "@nhost/apollo";

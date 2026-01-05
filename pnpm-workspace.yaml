@@ -1,0 +1,2 @@
+patchedDependencies:
+  '@nhost/react-apollo': patches/@nhost__react-apollo.patch

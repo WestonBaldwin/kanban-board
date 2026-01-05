@@ -1,22 +1,14 @@
-import type { CodegenConfig } from '@graphql-codegen/cli'
+import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
-  schema: 'https://countries.trevorblades.com/',
-  documents: ['src/graphql/**/*.graphql'],
+  schema: process.env.NEXT_PUBLIC_NHOST_GRAPHQL_URL || 'https://your-nhost-backend.herokuapp.com/v1/graphql',
+  documents: 'src/graphql/**/*.graphql',
   generates: {
-    // 'src/graphql/__generated__/': {
-    //   preset: 'client',
-    //   plugins: [],
-    // },
-    // Alternatively, generate explicit React Apollo hooks:
-    'src/graphql/types.ts': {
+    'src/graphql/__generated__/': {
+      preset: 'client',
       plugins: ['typescript', 'typescript-operations', 'typescript-react-apollo'],
-      config: {
-        apolloReactHooksImportFrom: '@apollo/client/react',
-        apolloReactCommonImportFrom: '@apollo/client/core',
-        withSuspenseQuery: false,
-      },
     },
   },
-}
-export default config
+};
+
+export default config;

@@ -1,0 +1,87 @@
+table:
+  name: boards
+  schema: public
+object_relationships:
+  - name: board_member
+    using:
+      foreign_key_constraint_on:
+        column: board_id
+        table:
+          name: board_members
+          schema: public
+  - name: user
+    using:
+      foreign_key_constraint_on: owner
+array_relationships:
+  - name: board_members
+    using:
+      foreign_key_constraint_on:
+        column: board_id
+        table:
+          name: board_members
+          schema: public
+  - name: columns
+    using:
+      foreign_key_constraint_on:
+        column: board_id
+        table:
+          name: columns
+          schema: public
+insert_permissions:
+  - role: user
+    permission:
+      check:
+        owner:
+          _eq: X-Hasura-User-Id
+      columns:
+        - position
+        - name
+        - id
+        - owner
+    comment: ""
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - position
+        - name
+        - id
+        - owner
+      filter:
+        _or:
+          - owner:
+              _eq: X-Hasura-User-Id
+          - board_members:
+              user_id:
+                _eq: X-Hasura-User-Id
+    comment: ""
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - position
+        - name
+        - id
+        - owner
+      filter:
+        _or:
+          - owner:
+              _eq: X-Hasura-User-Id
+          - board_members:
+              user_id:
+                _eq: X-Hasura-User-Id
+      check:
+        _or:
+          - owner:
+              _eq: X-Hasura-User-Id
+          - board_members:
+              user_id:
+                _eq: X-Hasura-User-Id
+    comment: ""
+delete_permissions:
+  - role: user
+    permission:
+      filter:
+        owner:
+          _eq: X-Hasura-User-Id
+    comment: ""

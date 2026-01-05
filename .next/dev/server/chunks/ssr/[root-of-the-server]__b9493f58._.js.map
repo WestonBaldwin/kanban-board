@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 24, "column": 0}, "map": {"version":3,"sources":["file:///Users/westonbaldwin/Coding/MyCritters/kanban-board/src/app/page.tsx"],"sourcesContent":["import AuthForm from \"@/components/AuthForm\";\n\nexport default function HomePage() {\n  return <AuthForm />;\n}\n"],"names":[],"mappings":";;;;;AAAA;;;AAEe,SAAS;IACtB,qBAAO,+YAAC,yIAAQ;;;;;AAClB"}}]
+}

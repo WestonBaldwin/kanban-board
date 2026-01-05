@@ -1,0 +1,1 @@
+CREATE TABLE public.board_members (board_id uuid NOT NULL, user_id uuid NOT NULL, role text NOT NULL, PRIMARY KEY (board_id,user_id), FOREIGN KEY (board_id) REFERENCES public.boards (id) ON UPDATE CASCADE ON DELETE CASCADE, FOREIGN KEY (user_id) REFERENCES auth.users (id) ON UPDATE CASCADE ON DELETE CASCADE);

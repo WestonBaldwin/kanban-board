@@ -1,0 +1,1 @@
+ALTER TABLE public.board_members ADD CONSTRAINT board_members_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users (id) ON UPDATE CASCADE ON DELETE CASCADE;
